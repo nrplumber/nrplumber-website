@@ -5,41 +5,40 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#f2f6ff;font-family:Arial,sans-serif}
-.topbar{background:#0a3d8a;color:#fff;text-align:center;padding:8px;font-size:12px;font-weight:bold}
 .hero{position:relative;height:340px;background:#ccc;overflow:hidden}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:top
+.hero img{width:100%;height:100%;object-fit:cover;object-position:top}
 .ov{position:absolute;inset:0;background:rgba(255,255,255,.15)}
 .hc{position:absolute;inset:0;padding:16px}
-..hc a{display:inline-block;padding:11px 18px;font-size:15px;font-weight:800;border-radius:999px;margin:6px 6px 0 0}
-.tag{font-style:italic;color:#0a3d8a;font-weight:bold;margin:6px 0}
-.svc-row{display:flex;gap:8px}
-.svc{background:#fff;border-radius:12px;padding:10px 6px;text-align:center;font-size:10px;font-weight:bold;width:64px}
-.call{position:absolute;top:45%;right:12px;background:#ff2d55;color:#fff;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px}
-.btn-row{display:flex;gap:8px;padding:12px}
-.btn-row a{flex:1;text-align:center;padding:13px;border-radius:10px;color:#fff;text-decoration:none;font-weight:bold;font-size:14px}
-</style></head><body><div style="background:#0a2a6b;color:#fff;display:flex;align-items:center;gap:10px;padding:10px 12px;position:sticky;top:0;z-index:999;"><div style="width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;">🔧</div><div style="flex:1;line-height:1.1;"><div style="font-weight:900;font-size:16px;">NR PLUMBER</div><div style="font-size:11px;letter-spacing:1px;">& UBAH SUAI RUMAH</div></div><div style="display:flex;flex-direction:column;gap:4px;"><div style="display:flex;gap:4px;"><span style="background:#1a4a9a;padding:4px 8px;border-radius:20px;font-size:11px;">☁️ 25°C</span><span style="background:#1a4a9a;padding:4px 8px;border-radius:20px;font-size:11px;">👥 526</span></div><div style="display:flex;gap:4px;"><span style="background:#1a4a9a;padding:4px 8px;border-radius:20px;font-size:11px;">🕒 02:54</span><span style="background:#1a4a9a;padding:4px 8px;border-radius:20px;font-size:11px;">👁️ 137</span></div></div><div style="font-size:22px;padding:4px 8px;background:#1a4a9a;border-radius:10px;">☰</div></div>
-<div style="display:flex;gap:8px;padding:0 10px;margin:-22px 10px 0;position:relative;z-index:5;overflow-x:auto">
-<a href="https://wa.me/601168137123" style="background:#0a6bff;color:#fff;padding:11px 14px;border-radius:999px;font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none">📅 Book Now</a>
-<a href="https://wa.me/601168137123" style="background:#22c55e;color:#fff;padding:11px 14px;border-radius:999px;font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none">💬 WhatsApp</a>
-<a href="#servis" style="background:#fff;color:#111;padding:11px 14px;border-radius:999px;font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none">🔧 Servis Kami</a>
-<a href="https://wa.me/601168137123?text=Hi%2C%20nak%20tanya%20harga" style="background:#ff7a00;color:#fff;padding:11px 14px;border-radius:999px;font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none">🏷️ Tanya Harga</a>
+.hc a{display:inline-block;padding:11px 18px;font-size:15px;font-weight:800;border-radius:30px;text-decoration:none}
+</style></head><body>
+
+<!-- HEADER - TAK GERAK, JAM HIDUP -->
+<div style="background:#0a2a6b;color:#fff;display:flex;align-items:center;gap:10px;padding:10px 12px;"><div style="width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;">🔧</div><div style="flex:1;line-height:1.1;"><div style="font-weight:900;font-size:16px;">NR PLUMBER</div><div style="font-size:11px;letter-spacing:1px;">& UBAH SUAI RUMAH</div></div><div style="display:flex;flex-direction:column;gap:4px;"><div style="display:flex;gap:4px;"><span style="background:#1a4a9a;padding:4px 8px;border-radius:20px;font-size:11px;">☁️ 25°C</span><span style="background:#1a4a9a;padding:4px 8px;border-radius:20px;font-size:11px;">👥 526</span></div><div style="display:flex;gap:4px;"><span style="background:#1a4a9a;padding:4px 8px;border-radius:20px;font-size:11px;">🕒 <span id="jam">03:29</span></span><span style="background:#1a4a9a;padding:4px 8px;border-radius:20px;font-size:11px;">👁️ 137</span></div></div><div style="font-size:22px;padding:4px 8px;background:#1a4a9a;border-radius:10px;">☰</div></div>
+<script>setInterval(function(){var d=new Date();var h=('0'+d.getHours()).slice(-2);var m=('0'+d.getMinutes()).slice(-2);document.getElementById('jam').innerText=h+':'+m;},1000);</script>
+
+<!-- HERO + FOTO BOS -->
+<div class="hero"><img src="IMG-20261025-WA3606.jpg"><div class="ov"></div><div class="hc">
+<a href="https://wa.me/601168137123" style="background:#0a6bff;color:#fff;">📞 Call Now</a>
+<a href="https://wa.me/601168137123" style="background:#22c55e;color:#fff;">💬 WhatsApp</a>
+<a href="#servis" style="background:#fff;color:#111;">🛠️ Servis Kami</a><br><br>
+<a href="https://wa.me/601168137123?text=Hi%2C%20nak%20tanya%20harga" style="background:#f97316;color:#fff;">💰 Tanya Harga Percuma</a>
+</div></div>
+
+<div style="margin:6px 12px;background:#0a6bff;border-radius:18px;padding:18px;color:#fff;text-align:center;"><h2>⚡ Servis Pantas, Harga Telus</h2><p>Teluk Intan & Sekitar Perak - Datang Hari Sama!</p></div>
+
+<div style="display:flex;background:#eaf4ff;border:1.5px solid #2ea5ff;border-radius:30px;margin:10px 12px;padding:10px;text-align:center;font-weight:bold;"><div style="flex:1;">🕒 7 Hari Seminggu</div><div style="flex:1;">✅ Waranti Kerja</div><div style="flex:1;">💰 Harga Tetap</div></div>
+
+<div id="servis" style="background:#fff;margin:12px;border-radius:16px;overflow:hidden;">
+<div style="padding:16px;border-bottom:1px solid #eee;"><h3>🔧 Baiki Paip Bocor & Paip Pecah</h3></div>
+<div style="padding:16px;border-bottom:1px solid #eee;"><h3>🚽 Baiki Tandas & Sinki Tersumbat</h3></div>
+<div style="padding:16px;border-bottom:1px solid #eee;"><h3>🚿 Pasang Water Heater & Pam Air</h3></div>
+<div style="padding:16px;border-bottom:1px solid #eee;"><h3>🏠 Renovation Bilik Air & Dapur</h3></div>
+<div style="padding:16px;border-bottom:1px solid #eee;"><h3>🧱 Tiling, Waterproofing & Bumbung</h3></div>
+<div style="padding:16px;"><h3>⚡ Elektrikal & Pasang Kipas / Lampu</h3></div>
 </div>
-<div style="margin:6px 12px;background:#0a6bff;border-radius:18px;padding:18px;color:#fff;display:flex;gap:12px;align-items:center"><div style="font-size:36px">🤖</div><div><small>PLUMBING, RENOVATION & BOOKING</small><h2>NR PLUMBER AI</h2><p style="font-size:13px">Apa yang anda perlukan? Taip sahaja di sini.</p></div><div style="font-size:24px">→</div></div>
-<div style="display:flex;background:#eaf4ff;border:1.5px solid #2ea5ff;border-radius:30px;margin:14px 12px;padding:6px 6px 6px 14px"><span>🔍</span><input style="flex:1;border:none;background:transparent;outline:none" placeholder="Cari: sinki tersumbat, paip bocor..."><button style="background:#0a6bff;color:#fff;border:none;padding:11px 18px;border-radius:20px;font-weight:bold">CARI</button></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;background:#fff">
-<div style="padding:16px;border-bottom:1px solid #eee;border-right:1px solid #eee"><h3>🏅 Sejak 2023</h3><p style="font-size:13px;color:#555">Dipercayai pelanggan</p></div>
-<div style="padding:16px;border-bottom:1px solid #eee"><h3>📍 Selangor & KL</h3><p style="font-size:13px;color:#555">Termasuk Ampang</p></div>
-<div style="padding:16px;border-right:1px solid #eee"><h3>🕐 7 Hari Seminggu</h3><p style="font-size:13px;color:#555">8 pagi - 9 malam</p></div>
-<div style="padding:16px"><h3>💬 WhatsApp</h3><p style="font-size:13px;color:#555">Hantar gambar, dapat cadangan</p></div></div>
-<div id="servis" style="padding:18px;background:#fff;margin:12px;border-radius:16px"><h2>🔧 Servis Kami</h2>
-<p style="padding:9px 0;border-bottom:1px solid #f0f0f0">🚰 Baiki Paip Bocor & Paip Pecah</p>
-<p style="padding:9px 0;border-bottom:1px solid #f0f0f0">🚽 Baiki Tandas & Sinki Tersumbat</p>
-<p style="padding:9px 0;border-bottom:1px solid #f0f0f0">🚿 Pasang Water Heater & Pam Air</p>
-<p style="padding:9px 0;border-bottom:1px solid #f0f0f0">🏠 Renovation Bilik Air & Dapur</p>
-<p style="padding:9px 0;border-bottom:1px solid #f0f0f0">🧱 Tiling, Waterproofing & Bumbung</p>
-<p style="padding:9px 0">⚡ Elektrikal & Pasang Ceiling</p>
-<br><a href="https://wa.me/601168137123" style="display:block;background:#25D366;color:#fff;text-align:center;padding:15px;border-radius:12px;text-decoration:none;font-weight:bold">WhatsApp Sekarang - FREE Quotation</a></div>
-<div style="padding:18px;background:#fff;margin:12px;border-radius:16px"><h2>⭐ Kenapa Pilih NR Plumber?</h2><p style="line-height:1.7">✅ Harga telus, tiada caj tersembunyi<br>✅ Tukang berpengalaman & kemas<br>✅ Respon pantas - KL & Selangor<br>✅ Waranti kerja</p></div>
-<div style="background:#0a2a6b;color:#fff;text-align:center;padding:20px">NR PLUMBER • 011-6813 7123<br>Kuala Lumpur & Selangor<br><br>© 2026 NR Plumber</div>
+
+<div style="padding:18px;background:#fff;margin:12px;border-radius:16px;text-align:center;"><h2>⭐ Kenapa Pilih NR PLUMBER?</h2><p style="margin-top:8px;">Kerja Kemas • Datang Cepat • Harga Jujur • Orang Teluk Intan Sendiri</p><br><a href="https://wa.me/601168137123" style="display:block;background:#25D366;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-weight:900;">💬 WHATSAPP SEKARANG</a></div>
+
+<div style="background:#0a2a6b;color:#fff;text-align:center;padding:20px;">NR PLUMBER • 011-68137123<br>Teluk Intan, Perak</div>
+<a href="tel:+601168137123" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:900;">📞 Call</a>
 </body></html>
-<a href="tel:+601168137123" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 20px;border-radius:50px;font-weight:900;text-decoration:none;z-index:999;">📞 Call Now</a>
