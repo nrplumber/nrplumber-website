@@ -72,3 +72,23 @@ if(btn){btn.style.cursor='pointer';btn.onclick=function(e){e.stopPropagation();v
 document.addEventListener('click',function(){var m=document.getElementById('menuNR');if(m) m.style.display='none';});
 })();
 </script>
+<script>
+let jamEl=null, pelEl=null, tgkEl=null, cuacaEl=null;
+document.querySelectorAll('*').forEach(e=>{
+if(e.children.length==0){
+if(e.textContent.includes('02:54')) jamEl=e;
+if(e.textContent.includes('526')) pelEl=e;
+if(e.textContent.includes('137')) tgkEl=e;
+if(e.textContent.includes('25°C')) cuacaEl=e;
+}
+});
+let pel=526, tgk=137;
+setInterval(()=>{
+let d=new Date();
+let j=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+if(jamEl) jamEl.textContent=jamEl.textContent.replace(/\d\d:\d\d/,j);
+},1000);
+setInterval(()=>{ pel++; if(pelEl) pelEl.textContent=pelEl.textContent.replace(/\d+/,pel); },5000);
+setInterval(()=>{ tgk++; if(tgkEl) tgkEl.textContent=tgkEl.textContent.replace(/\d+/,tgk); },3000);
+setInterval(()=>{ let c=25+Math.floor(Math.random()*5); if(cuacaEl) cuacaEl.textContent=cuacaEl.textContent.replace(/\d+°C/,c+'°C'); },10000);
+</script>
