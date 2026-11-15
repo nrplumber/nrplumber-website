@@ -51,3 +51,22 @@ body{background:#f2f6ff;font-family:Arial,sans-serif}
 <div style="background:#0a2a6b;color:#fff;text-align:center;padding:20px">NR PLUMBER • 011-6813 7123<br>Kuala Lumpur & Selangor<br><br>© 2026 NR Plumber</div>
 </body></html>
 <a href="tel:+601168137123" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 20px;border-radius:50px;font-weight:900;text-decoration:none;z-index:999;">📞 Call Now</a>
+<div id="menuNR" style="display:none;position:fixed;top:60px;right:10px;background:white;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.3);z-index:9999;padding:10px;width:200px;">
+<a id="m1" href="#" style="display:block;padding:12px;color:#0a2a6b;font-weight:bold;text-decoration:none;border-bottom:1px solid #eee;">🔧 Servis Kami</a>
+<a id="m2" href="#" style="display:block;padding:12px;color:#0a2a6b;font-weight:bold;text-decoration:none;border-bottom:1px solid #eee;">💰 Tanya Harga</a>
+<a id="m3" href="#" style="display:block;padding:12px;color:#25D366;font-weight:bold;text-decoration:none;border-bottom:1px solid #eee;">💬 WhatsApp</a>
+<a id="m4" href="#" style="display:block;padding:12px;color:#e11d48;font-weight:bold;text-decoration:none;">📞 Call Now</a>
+</div>
+<script>
+(function(){
+function cari(t){var a=document.querySelectorAll('a');for(var i=0;i<a.length;i++){if(a[i].textContent.indexOf(t)>-1) return a[i].href;} return '#';}
+document.getElementById('m1').href=cari('Servis');
+document.getElementById('m2').href=cari('Harga');
+document.getElementById('m3').href=cari('WhatsApp');
+document.getElementById('m4').href=cari('Call');
+var btn=null;var all=document.querySelectorAll('*');
+for(var i=0;i<all.length;i++){if(all[i].textContent.trim()==='☰'||all[i].textContent.trim()==='≡'){btn=all[i];break;}}
+if(btn){btn.style.cursor='pointer';btn.onclick=function(e){e.stopPropagation();var m=document.getElementById('menuNR');m.style.display=(m.style.display==='none'?'block':'none');};}
+document.addEventListener('click',function(){var m=document.getElementById('menuNR');if(m) m.style.display='none';});
+})();
+</script>
