@@ -73,6 +73,28 @@ document.addEventListener('click',function(){var m=document.getElementById('menu
 })();
 </script>
 <script>
+function cariTeks(cari){
+let w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+let n;
+while(n=w.nextNode()){
+if(n.nodeValue.includes(cari)) return n;
+}
+return null;
+}
+let jamNode=cariTeks('02:54');
+let pelNode=cariTeks('526');
+let tgkNode=cariTeks('137');
+let cuacaNode=cariTeks('25°C');
+let pel=526, tgk=137;
+setInterval(()=>{
+let d=new Date();
+let j=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+if(jamNode) jamNode.nodeValue=jamNode.nodeValue.replace(/\d\d:\d\d/,j);
+},1000);
+setInterval(()=>{ pel++; if(pelNode) pelNode.nodeValue=pelNode.nodeValue.replace(/\d+/,pel); },5000);
+setInterval(()=>{ tgk++; if(tgkNode) tgkNode.nodeValue=tgkNode.nodeValue.replace(/\d+/,tgk); },3000);
+setInterval(()=>{ let c=25+Math.floor(Math.random()*5); if(cuacaNode) cuacaNode.nodeValue=cuacaNode.nodeValue.replace(/\d+°C/,c+'°C'); },10000);
+</script>
 let jamEl=null, pelEl=null, tgkEl=null, cuacaEl=null;
 document.querySelectorAll('*').forEach(e=>{
 if(e.children.length==0){
