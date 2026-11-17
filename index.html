@@ -283,8 +283,83 @@ body{background:#f2f6ff;font-family:Arial,sans-serif}
     <div style="font-size:13px;line-height:1.6;color:#334155;"><b style="color:#0A3D6B;">Kawasan bos tak ada dalam list?</b><br>WhatsApp je lokasi bos. Kalau kami boleh datang hari yang sama, kami terus confirmkan slot.</div>
   </div>
 
-  <a href="https://wa.me/60168137123?text=Hi%20Nasrudin%2C%20saya%20di%20kawasan%20%5
-    <div style="background:#ffffff;border:1px solid #E5E7EB;border-radius:24px;padding:22px;margin-top:18px;box-shadow:0 15px 40px rgba(15,23,42,0.08);font-family:system-ui,-apple-system,sans-serif;">
+ <a href="https://wa.me/60168137123?text=Hi%20Nasrudin%2C%20saya%20di%20kawasan%20%5Bletak%20kawasan%20bos%5D%2C%20boleh%20datang%20ke%3F" style="display:block;text-align:center;background:#0A3D6B;color:#fff;padding:15px;border-radius:999px;text-decoration:none;font-weight:800;font-size:16px;margin-top:18px;">📍 Check Kawasan Saya - WhatsApp</a>
+</div>
+
+<div style="background:#ffffff;border:1px solid #E5E7EB;border-radius:24px;padding:22px;margin-top:18px;box-shadow:0 15px 40px rgba(15,23,42,0.08);font-family:system-ui,-apple-system,sans-serif;">
+
+  <div style="display:inline-flex;align-items:center;gap:6px;background:#DCFCE7;color:#166534;font-size:12px;font-weight:800;padding:6px 12px;border-radius:999px;margin-bottom:12px;">● SLOT HARI INI MASIH ADA</div>
+  <h2 style="color:#0A3D6B;font-size:28px;line-height:1.2;margin:0 0 6px 0;">Tempahan<br>Perkhidmatan</h2>
+  <p style="color:#64748B;font-size:14px;margin:0 0 16px 0;">Pilih tarikh, kami confirmkan slot dalam WhatsApp.</p>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:600;color:#334155;margin-bottom:14px;">
+    <span>🟢 Sedia</span><span>🟡 Pending</span><span>🔴 Ditempah</span><span>🔵 Disemak</span>
+  </div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+    <button onclick="changeMonthNR(-1)" style="border:0;background:#F1F5F9;width:36px;height:36px;border-radius:999px;font-size:18px;cursor:pointer;">‹</button>
+    <b id="calTitleNR" style="font-size:18px;color:#0F172A;">November 2026</b>
+    <button onclick="changeMonthNR(1)" style="border:0;background:#F1F5F9;width:36px;height:36px;border-radius:999px;font-size:18px;cursor:pointer;">›</button>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:13px;font-weight:700;color:#64748B;margin-bottom:8px;">
+    <span style="color:#DC2626;">Isn</span><span>Sel</span><span>Rab</span><span>Kha</span><span>Jum</span><span>Sab</span><span style="color:#EAB308;">Ahd</span>
+  </div>
+  <div id="calGridNR" style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;"></div>
+
+  <div style="margin-top:18px;">
+    <div style="color:#64748B;font-size:14px;">Tarikh dipilih</div>
+    <div id="selectedDateNR" style="font-size:20px;font-weight:800;color:#0F172A;margin:4px 0 10px 0;">Sila pilih tarikh</div>
+    <span id="statusBadgeNR" style="display:inline-block;background:#DCFCE7;color:#166534;padding:6px 14px;border-radius:999px;font-size:14px;font-weight:700;">🟢 Sedia</span>
+  </div>
+
+  <a id="bookBtnNR" href="https://wa.me/60168137123?text=Hi%20Nasrudin%2C%20saya%20nak%20tempah%20servis%20plumber." style="display:block;text-align:center;background:#2563EB;color:#fff;padding:16px;border-radius:14px;text-decoration:none;font-weight:800;font-size:17px;margin-top:16px;">📅 Tempah Tarikh Ini</a>
+  <p style="text-align:center;color:#94A3B8;font-size:12px;margin:10px 0 0 0;">Respon pantas • Ampang, Selangor • Kuala Lumpur</p>
+</div>
+
+<script>
+let curNR = new Date(2026, 10, 1);
+let selNR = new Date(2026, 10, 17);
+function renderCalNR(){
+  const y = curNR.getFullYear(), m = curNR.getMonth();
+  const monthNames = ["Januari","Februari","Mac","April","Mei","Jun","Julai","Ogos","September","Oktober","November","Disember"];
+  document.getElementById('calTitleNR').innerText = monthNames[m] + " " + y;
+  const firstDay = new Date(y,m,1).getDay();
+  const startOffset = (firstDay + 6) % 7;
+  const daysInMonth = new Date(y,m+1,0).getDate();
+  let html = "";
+  for(let i=0;i<startOffset;i++) html += `<div></div>`;
+  const today = new Date(); today.setHours(0,0,0,0);
+  for(let d=1; d<=daysInMonth; d++){
+    const date = new Date(y,m,d);
+    const isPast = date < today;
+    const isSel = selNR && selNR.getDate()===d && selNR.getMonth()===m && selNR.getFullYear()===y;
+    let bg = "#DCFCE7", color = "#0F172A", border = "0";
+    if(isPast){ bg="#F8FAFC"; color="#CBD5E1"; }
+    if(isSel){ bg="#BFDBFE"; border="2px solid #2563EB"; }
+    html += `<div onclick="pickDateNR(${y},${m},${d},this)" style="background:${bg};border:${border};color:${color};padding:12px 0;text-align:center;border-radius:12px;font-weight:700;cursor:pointer;font-size:15px;">${d}</div>`;
+  }
+  document.getElementById('calGridNR').innerHTML = html;
+  updateSelectedNR();
+}
+function pickDateNR(y,m,d,el){
+  selNR = new Date(y,m,d);
+  renderCalNR();
+}
+function updateSelectedNR(){
+  if(!selNR) return;
+  const monthNames = ["Januari","Februari","Mac","April","Mei","Jun","Julai","Ogos","September","Oktober","November","Disember"];
+  const dayNames = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"];
+  const txt = dayNames[selNR.getDay()] + ", " + selNR.getDate() + " " + monthNames[selNR.getMonth()] + " " + selNR.getFullYear();
+  document.getElementById('selectedDateNR').innerText = txt;
+  document.getElementById('bookBtnNR').href = "https://wa.me/60168137123?text=" + encodeURIComponent("Hi Nasrudin, saya nak tempah servis plumber pada " + txt + ". Boleh confirmkan slot?");
+}
+function changeMonthNR(n){
+  curNR.setMonth(curNR.getMonth()+n);
+  renderCalNR();
+}
+renderCalNR();
+</script> 
 
   <div style="display:inline-flex;align-items:center;gap:6px;background:#DCFCE7;color:#166534;font-size:12px;font-weight:800;padding:6px 12px;border-radius:999px;margin-bottom:12px;">● SLOT HARI INI MASIH ADA</div>
   <h2 style="color:#0A3D6B;font-size:28px;line-height:1.2;margin:0 0 6px 0;">Tempahan<br>Perkhidmatan</h2>
